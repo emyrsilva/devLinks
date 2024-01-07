@@ -1,0 +1,184 @@
+@charset "utf-8";
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --fonte-color: #ffffff;
+    --img-background: url(imagens/bg-mobile.jpg);
+    --img-button: url(imagens/moon-stars.svg);
+    --button-social-hover: rgba(255, 255, 255, 0.2);
+    --background: rgba(255, 255, 255, 0.2);
+    --background-hover: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.5);
+}
+
+.ligth{
+    --fonte-color: #000000;
+    --img-background: url(imagens/bg-mobile-light.jpg);
+    --img-button: url(imagens/sun.svg);
+    --button-social-hover: rgba(0, 0, 0, 0.10);
+    --background: rgba(0, 0, 0, 0.05);
+    --background-hover: rgba(0, 0, 0, 0.02);
+    --border: rgba(0, 0, 0, 0.50);
+}
+
+body *{
+    font-family: "Inter", sans-serif;
+    color: var(--fonte-color);
+}
+
+body{
+    background-image: var(--img-background);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    height: 100vh;
+}
+
+#container{
+    width: 100%;
+    max-width: 588px;
+    margin: 56px auto 0px;
+    padding: 0px 24px;
+}
+
+#perfil{
+    text-align: center;
+    padding: 24px;
+}
+
+#perfil img{
+    width: 112px;
+}
+
+#perfil p{
+    font-weight: 500;
+    margin-top: 8px;
+    line-height: 24px;
+}
+
+#dark-ligth{
+    position: relative;    
+    width: 64px;
+    margin: 4px auto;
+}
+
+#dark-ligth button{
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    background-image: var(--img-button);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    border: 0;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: translatey(-10%);
+    animation: button-ligth 0.2s
+}
+
+.ligth #dark-ligth button {
+    animation: button-dark 0.2s forwards;
+}
+
+#dark-ligth button:hover{
+    outline: 8px solid var(--button-social-hover);
+}
+
+#dark-ligth span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 24px 0px;
+}
+
+ul li a{
+    display: block;
+    background-color: var(--background);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 16px 24px;
+    text-decoration: none;
+}
+
+ul li a:hover{
+    background-color: var(--background-hover);
+    border: 1px solid var(--fonte-color);
+}
+
+#rede-social{
+    display: flex;
+    justify-content: center;
+    margin: 24px;
+}
+
+#rede-social a ion-icon{
+    font-size: 24px;
+    padding: 16px;
+    border-radius: 50%;
+}
+
+#rede-social a ion-icon:hover{
+    background-color: var(--button-social-hover);
+}
+
+footer{
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    padding: 24px;
+}
+
+@media (min-width: 700px) {
+    :root{
+        --img-background: url(imagens/bg-desktop.jpg);
+      }
+
+    .ligth{
+        --img-background: url(imagens/bg-desktop-light.jpg);
+      }
+}
+
+@keyframes button-dark{
+    from {
+        left: 0;
+      }
+    to {
+        left: 50%;
+      }
+}
+
+@keyframes button-ligth{
+    from {
+        left: 50%;
+      }
+    to {
+        left: 0;
+      }
+}
